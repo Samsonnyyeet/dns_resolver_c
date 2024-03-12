@@ -14,4 +14,7 @@ int main() {
      * 253 is the max length allowed for domain names.
     */
     int len = strlen(url);
+
+    // create packet
+    uint16_t* packet = make_packet(url);
 }
