@@ -5,7 +5,7 @@
 #include "structure_definitions.h"
 #include "query_header_builder.h"
 
-uint16_t* build_q_header(uint16_t id, query_op_code op_code, uint16_t qd_count) {
+uint16_t* build_q_header(uint16_t id, int op_code, uint16_t qd_count) {
     uint16_t flags = 0x0000;
 
     switch (op_code)
@@ -18,6 +18,7 @@ uint16_t* build_q_header(uint16_t id, query_op_code op_code, uint16_t qd_count) 
         break;
     case Server_Status:
         flags = flags | 0x1000;
+        break;
     default:
         break;
     }
@@ -35,6 +36,11 @@ uint16_t* build_q_header(uint16_t id, query_op_code op_code, uint16_t qd_count) 
     final_q_head[3] = remaining_counts;
     final_q_head[4] = remaining_counts;
     final_q_head[5] = remaining_counts;
-
+    // for (size_t i = 0; i < 6; ++i) {
+    //     printf("%04X ", final_q_head[i]);
+    // }
     return final_q_head;
 }
+
+
+

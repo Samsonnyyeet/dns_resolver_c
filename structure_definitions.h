@@ -41,4 +41,6 @@ typedef struct header {
     uint16_t ar_count;
 } HEADER;
 
+typedef uint8_t byte;
+
 #endif

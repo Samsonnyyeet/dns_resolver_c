@@ -41,8 +41,8 @@ void free_pairs(LL_PAIRS* pairs, int count) {
     free(pairs);
 }
 
-int main() {
-    char url[] = "www.google.com";
-    int pair_count = 0;
-    LL_PAIRS* pairs = parse(url, strlen(url), &pair_count);
-}
+// int main() {
+//     char url[] = "www.google.com";
+//     int pair_count = 0;
+//     LL_PAIRS* pairs = parse(url, strlen(url), &pair_count);
+// }
