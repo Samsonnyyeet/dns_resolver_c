@@ -5,7 +5,7 @@
 #include <string.h>
 #include "parse.h"
 #include "build_packet_uint16_t.c"
-
+#include "udp_implementation.h"
 
 int main() {
     char url[254] = "www.northeastern.edu";
@@ -14,12 +14,14 @@ int main() {
      * The length of the entire domain must be less than 254. 
      * 253 is the max length allowed for domain names.
     */
-    int len = strlen(url);
 
     // create packet
-    uint16_t* packet = generate_packet(url);
+    int len;
+    uint16_t* packet = generate_packet(url, &len);
     
-    for (size_t i = 0; i < 18; ++i) {
-        printf("%04X ", packet[i]);
+    uint8_t *response = send_and_receive_dns(packet, len);
+
+    for (size_t i = 0; i < 1024; ++i) {
+        printf("%04X ", response[i]);
     }
 }

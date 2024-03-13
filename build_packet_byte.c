@@ -30,16 +30,16 @@ uint16_t* build_dns_packet(uint16_t* dns_header, uint16_t* dns_question,int ques
     }
 }
 
-int main(int argc, char const *argv[])
-{
+// int main(int argc, char const *argv[])
+// {
     
-    char url[] = "www.google.com";
-    int pair_count = 0;
-    LL_PAIRS* pairs = parse(url, strlen(url), &pair_count);
-    int question_size = 0;
-    uint16_t* quesiton_segment = build_question(pairs,pair_count,&question_size);
-    uint16_t* header_segment = build_q_header(0xDB42,0,1);
-    build_dns_packet(header_segment,quesiton_segment,question_size);
+//     char url[] = "www.google.com";
+//     int pair_count = 0;
+//     LL_PAIRS* pairs = parse(url, strlen(url), &pair_count);
+//     int question_size = 0;
+//     uint16_t* quesiton_segment = build_question(pairs,pair_count,&question_size);
+//     uint16_t* header_segment = build_q_header(0xDB42,0,1);
+//     build_dns_packet(header_segment,quesiton_segment,question_size);
 
-    return 0;
-}
+//     return 0;
+// }

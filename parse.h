@@ -19,7 +19,7 @@ typedef struct label_len_pairs {
  * is responsible for freeing the memory allocated for the array and its individual strings
  * using the free_pairs function.
  */
-LL_PAIRS* parse(char url[], int len, int* arr_length);
+LL_PAIRS* parse_url(char url[], int len, int* arr_length);
 
 /**
  * @brief Frees the memory allocated for an array of label-length pairs.
@@ -29,6 +29,6 @@ LL_PAIRS* parse(char url[], int len, int* arr_length);
  *
  * This function frees the memory allocated for the labels and the array itself.
  */
-void free_pairs(LL_PAIRS* pairs, int count);
+void free_label_len_pairs(LL_PAIRS* pairs, int count);
 
 #endif // URL_PARSER_H

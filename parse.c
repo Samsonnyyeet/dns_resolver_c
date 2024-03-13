@@ -3,7 +3,7 @@
 #include <string.h>
 #include "parse.h"
 
-LL_PAIRS* parse(char url[], int len, int* arr_length) {
+LL_PAIRS* parse_url(char url[], int len, int* arr_length) {
     // remove trailing http:// or https://
     // skipping this step for now assuming all input is in the following format - www.google.com
 
@@ -25,7 +25,7 @@ LL_PAIRS* parse(char url[], int len, int* arr_length) {
         pairs[loop_index].label = strdup(token);
         if (pairs[loop_index].label == NULL) {
             // handle memory allocation failure
-            free_pairs(pairs, loop_index);
+            free_label_len_pairs(pairs, loop_index);
             return NULL;
         }
         pairs[loop_index].len = strlen(token);
@@ -34,7 +34,7 @@ LL_PAIRS* parse(char url[], int len, int* arr_length) {
     return pairs;
 }
 
-void free_pairs(LL_PAIRS* pairs, int count) {
+void free_label_len_pairs(LL_PAIRS* pairs, int count) {
     for (int i = 0; i < count; i++) {
         free(pairs[i].label);
     }

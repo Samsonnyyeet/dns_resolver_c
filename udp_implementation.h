@@ -9,6 +9,6 @@
 #define SERVER_IP "1.1.1.1"
 #define SERVER_PORT 53 // port for DNS queries
 
-int send_and_receive(uint16_t* packet, int len);
+uint8_t* send_and_receive_dns(uint16_t* packet, int len);
 
 #endif // UDP_CLIENT_H

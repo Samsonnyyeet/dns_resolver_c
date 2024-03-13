@@ -5,7 +5,7 @@
 #include "structure_definitions.h"
 #include "query_header_builder.h"
 
-uint16_t* build_q_header(uint16_t id, int op_code, uint16_t qd_count) {
+uint16_t* build_query_header(uint16_t id, int op_code, uint16_t qd_count) {
     uint16_t flags = 0x0000;
 
     switch (op_code)

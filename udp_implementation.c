@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "udp_implementation.h"
 
-uint8_t* send_and_receive(uint16_t* packet, int len) {
+uint8_t* send_and_receive_dns(uint16_t* packet, int len) {
     WSADATA wsaData;
     int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (iResult != 0) {
