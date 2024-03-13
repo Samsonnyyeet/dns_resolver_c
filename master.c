@@ -4,10 +4,11 @@
 #include <stdint.h>
 #include <string.h>
 #include "parse.h"
+#include "build_packet_uint16_t.c"
 
 
 int main() {
-    char url[254] = "www.google.com";
+    char url[254] = "www.northeastern.edu";
     /**
      * The domain you want to resolve is stored in url.
      * The length of the entire domain must be less than 254. 
@@ -16,5 +17,9 @@ int main() {
     int len = strlen(url);
 
     // create packet
-    uint16_t* packet = make_packet(url);
+    uint16_t* packet = generate_packet(url);
+    
+    for (size_t i = 0; i < 18; ++i) {
+        printf("%04X ", packet[i]);
+    }
 }
